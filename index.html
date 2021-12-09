@@ -28,6 +28,45 @@
 </head>
 
 <body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="new_image" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="image_url" class="form-label">Image URL</label>
+                        <input type="url" class="form-control" id="image_url" placeholder="https://imageURLaddress.com">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="image_name" class="form-label">Image Name</label>
+                        <input type="text" class="form-control" id="image_name" placeholder="Name of the image">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="image_type" class="form-label">Image Type</label>
+                        <input type="text" class="form-control" id="image_type" placeholder="Type of the image">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="image_description" class="form-label">Password</label>
+                        <textarea type="password" class="form-control" id="image_description"
+                            placeholder="Short discription about the image"></textarea>
+                    </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-body rounded">
         <div class="container-fluid">
@@ -44,18 +83,17 @@
                     </li>
                 </ul>
 
-                <button type="button" class=" btn btn-secondary ">
+                <button type="button" class=" btn btn-secondary " data-bs-toggle="modal" data-bs-target="#new_image">
                     <i class="fas fa-folder-plus"></i>
                     Add Image
                 </button>
-
 
             </div>
         </div>
     </nav>
 
     <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8 col-lg-6 ">
             <div class="input-group mb-3 container md-6 ">
                 <input type="text" class="form-control shadow-sm p-3 " placeholder="Search For"
                     aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -76,7 +114,8 @@
 
 
                 </div>
-                <img src="https://static.scientificamerican.com/blogs/cache/file/1D4440C5-CD59-4A53-A23648FF2C7CD0DD_source.jpg?w=590&h=800&B9BBE026-DB91-4291-B39DC8D859778498" class="card-img-top" alt="image.jpg">
+                <img src="https://static.scientificamerican.com/blogs/cache/file/1D4440C5-CD59-4A53-A23648FF2C7CD0DD_source.jpg?w=590&h=800&B9BBE026-DB91-4291-B39DC8D859778498"
+                    class="card-img-top" alt="image.jpg">
 
                 <div class="card-body align-items-start">
 
@@ -96,4 +135,28 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
+
+<div class="mb-3">
+    <label for="image_url" class="form-label">Image URL</label>
+    <input type="url" class="form-control" id="image_url" placeholder="https://imageURLaddress.com">
+</div>
+
+<div class="mb-3">
+    <label for="image_name" class="form-label">Image Name</label>
+    <input type="text" class="form-control" id="image_name" placeholder="Name of the image">
+</div>
+
+<div class="mb-3">
+    <label for="image_type" class="form-label">Image Type</label>
+    <input type="text" class="form-control" id="image_type" placeholder="Type of the image">
+</div>
+
+<div class="mb-3">
+    <label for="image_description" class="form-label">Password</label>
+    <textarea type="password" class="form-control" id="image_description"
+        placeholder="Short discription about the image"></textarea>
+</div>
+<h6><span class="badge bg-secondary">Open gallery</span></h6>
+</div>
