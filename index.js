@@ -36,8 +36,10 @@ const addImage=()=>{
         description:document.getElementById("imageDescription").value,
         
     };
+
     console.log(saveChanges);
-    globalTaskData.push(saveChanges);
     const createNewCard=createCard(saveChanges);
     taskContainer.insertAdjacentHTML("beforeend",createNewCard);
+    globalTaskData.push(saveChanges);
+    localStorage.setItem("key", JSON.stringify({cards:globalTaskData}));
 };
