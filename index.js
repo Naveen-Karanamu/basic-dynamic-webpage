@@ -1,5 +1,8 @@
+const taskContainer=document.querySelector(".task_container");
+let globalTaskData=[];
+
 const createCard=({id,url,name,type,description})=>{
-    `<div class="col-md-4 " id="${id}">
+    return `<div class="col-md-4 " id=${id}>
     <div class="card  ">
         <div class="card-header d-flex justify-content-end gap-2">
             <button type="button" class="btn btn-outline-warning"> <i class="fas fa-pencil-alt"></i>
@@ -9,8 +12,7 @@ const createCard=({id,url,name,type,description})=>{
 
 
         </div>
-        <img src="${url}"
-            class="card-img-top" alt="image.jpg">
+        <img src=${url}class="card-img-top" alt="image.jpg">
 
         <div class="card-body align-items-start">
 
@@ -22,7 +24,7 @@ const createCard=({id,url,name,type,description})=>{
             <button type="button" class="btn btn-outline-secondary float-end">Open Image</button>
         </div>
     </div>
-</div>`
+</div>`;
 };
 
 const addImage=()=>{
@@ -35,5 +37,7 @@ const addImage=()=>{
         
     };
     console.log(saveChanges);
-    createCard(saveChanges);
+    globalTaskData.push(saveChanges);
+    const createNewCard=createCard(saveChanges);
+    taskContainer.insertAdjacentHTML("beforeend",createNewCard);
 };
