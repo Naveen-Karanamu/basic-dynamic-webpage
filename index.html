@@ -30,39 +30,39 @@
 <body>
 
     <!-- Modal -->
-    <div class="modal fade" id="new_image" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="newImage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="newImage">Modal title</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="image_url" class="form-label">Image URL</label>
-                        <input type="url" class="form-control" id="image_url" placeholder="https://imageURLaddress.com">
+                        <label for="imageURL" class="form-label">Image URL </label>
+                        <input type="url" class="form-control" id="imageURL" placeholder="https://image.url.com">
                     </div>
-                    
+
                     <div class="mb-3">
-                        <label for="image_name" class="form-label">Image Name</label>
-                        <input type="text" class="form-control" id="image_name" placeholder="Name of the image">
+                        <label for="imageName" class="form-label">Image Name</label>
+                        <input type="text" class="form-control" id="imageName" placeholder="Image Name">
                     </div>
-                    
+
                     <div class="mb-3">
-                        <label for="image_type" class="form-label">Image Type</label>
-                        <input type="text" class="form-control" id="image_type" placeholder="Type of the image">
+                        <label for="imageType" class="form-label">Image Type</label>
+                        <input type="text" class="form-control" id="imageType" placeholder="Type of the image">
                     </div>
-                    
+
                     <div class="mb-3">
-                        <label for="image_description" class="form-label">Password</label>
-                        <textarea type="password" class="form-control" id="image_description"
-                            placeholder="Short discription about the image"></textarea>
+                        <label for="imageDescription" class="form-label">Image Description</label>
+                        <textarea type="password" class="form-control" id="imageDescription"></textarea>
                     </div>
-                    </div>
+
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" onclick="addImage()">Save changes</button>
                 </div>
             </div>
         </div>
@@ -83,7 +83,7 @@
                     </li>
                 </ul>
 
-                <button type="button" class=" btn btn-secondary " data-bs-toggle="modal" data-bs-target="#new_image">
+                <button type="button" class=" btn btn-secondary " data-bs-toggle="modal" data-bs-target="#newImage">
                     <i class="fas fa-folder-plus"></i>
                     Add Image
                 </button>
@@ -104,7 +104,7 @@
     </div>
 
     <div class="row container mt-5">
-        <div class="col-md-4 ">
+        <div class="col-md-6 col-lg-4 ">
             <div class="card  ">
                 <div class="card-header d-flex justify-content-end gap-2">
                     <button type="button" class="btn btn-outline-warning"> <i class="fas fa-pencil-alt"></i>
@@ -134,29 +134,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
+    <script src="index.js">
+
+    </script>
 </body>
 
 </html>
-
-<div class="mb-3">
-    <label for="image_url" class="form-label">Image URL</label>
-    <input type="url" class="form-control" id="image_url" placeholder="https://imageURLaddress.com">
-</div>
-
-<div class="mb-3">
-    <label for="image_name" class="form-label">Image Name</label>
-    <input type="text" class="form-control" id="image_name" placeholder="Name of the image">
-</div>
-
-<div class="mb-3">
-    <label for="image_type" class="form-label">Image Type</label>
-    <input type="text" class="form-control" id="image_type" placeholder="Type of the image">
-</div>
-
-<div class="mb-3">
-    <label for="image_description" class="form-label">Password</label>
-    <textarea type="password" class="form-control" id="image_description"
-        placeholder="Short discription about the image"></textarea>
-</div>
-<h6><span class="badge bg-secondary">Open gallery</span></h6>
-</div>
