@@ -96,8 +96,8 @@ const editCard=(event)=>{
     let imageDescription=parentElement.childNodes[5].childNodes[5];
 
     imageName.setAttribute("contenteditable","true");
-    imageName.setAttribute("contenteditable","true");
-    imageName.setAttribute("contenteditable","true");
+    imageType.setAttribute("contenteditable","true");
+    imageDescription.setAttribute("contenteditable","true");
 
 
 
