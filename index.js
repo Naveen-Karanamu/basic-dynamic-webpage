@@ -23,7 +23,7 @@ const createCard = ({ id, url, name, type, description }) => {
             <h6><span class="badge bg-secondary">${type}</span></h6>
         </div>
         <div class="card-footer text-muted">
-            <button type="button" class="btn btn-outline-secondary float-end">Open Image</button>
+            <button type="button" class="btn btn-outline-secondary float-end" id=${id}>Open Image</button>
         </div>
     </div>
 </div>`;
@@ -99,8 +99,59 @@ const editCard=(event)=>{
     imageName.setAttribute("contenteditable","true");
     imageType.setAttribute("contenteditable","true");
     imageDescription.setAttribute("contenteditable","true");
+    imageSubmitButton.setAttribute("onclick","saveEdit().apply(this, arguments)");
     imageSubmitButton.innerHTML="Save Changes";
 
+};
+
+const saveEdit=(event)=>{
+    event=window.event;
+    targetId=event.target.id;
+    const tagname=event.target.tagName;
+    let parentElement;
+    
+    if(tagname==="BUTTON"){
+        parentElement=event.target.parentNode.parentNode;
+    }
+
+    else
+    parentElement=event.target.parentNode.parentNode.parentNode;
+    // console.log(parentElement.childNodes[5].childNodes);
+
+    let imageName=parentElement.childNodes[5].childNodes[1];
+    let imageType=parentElement.childNodes[5].childNodes[3];
+    let imageDescription=parentElement.childNodes[5].childNodes[5];
+    let imageSubmitButton=parentElement.childNodes[7].childNodes[1];
+
+    const updateChanges={
+        name:imageName.innerHTML,
+        type:imageType.innerHTML,
+        description:imageDescription.innerHTML,    
+    };
+
+    const updateGlobalTasks=globalTaskData.map((update)=>{
+        if(update.id===targetId){
+            return {
+                id:update.id,
+                url:update.url,
+                name:updateChanges.name,
+                type:updateChanges.type,
+                description:updateChanges.description,
+
+            }
+        }
+        return update;
+    });
+
+    globalTaskData=updateGlobalTasks;
+    localStorage.setItem("key",JSON.stringify({cards:globalTaskData}));
+
+    imageName.setAttribute("contenteditable","false");
+    imageType.setAttribute("contenteditable","false");
+    imageDescription.setAttribute("contenteditable","false");
+    imageSubmitButton.removeAttribute("onclick");
+    imageSubmitButton.innerHTML="Open Image";
 
 
 }
+
