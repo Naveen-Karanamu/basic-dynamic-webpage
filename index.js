@@ -92,9 +92,11 @@ const editCard=(event)=>{
     // console.log(parentElement.childNodes[5].childNodes);
 
     let imageName=parentElement.childNodes[5].childNodes[1];
-    let imageType=parentElement.childNodes[5].childNodes[3];
-    let imageDescription=parentElement.childNodes[5].childNodes[5];
+    let imageType=parentElement.childNodes[5].childNodes[5];
+    let imageDescription=parentElement.childNodes[5].childNodes[3];
     let imageSubmitButton=parentElement.childNodes[7].childNodes[1];
+
+    console.log(parentElement.childNodes[5].childNodes);
 
     imageName.setAttribute("contenteditable","true");
     imageType.setAttribute("contenteditable","true");
@@ -119,8 +121,8 @@ const saveEdit=(event)=>{
     // console.log(parentElement.childNodes[5].childNodes);
 
     let imageName=parentElement.childNodes[5].childNodes[1];
-    let imageType=parentElement.childNodes[5].childNodes[3];
-    let imageDescription=parentElement.childNodes[5].childNodes[5];
+    let imageType=parentElement.childNodes[5].childNodes[5];
+    let imageDescription=parentElement.childNodes[5].childNodes[3];
     let imageSubmitButton=parentElement.childNodes[7].childNodes[1];
 
     const updateChanges={
