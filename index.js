@@ -94,10 +94,12 @@ const editCard=(event)=>{
     let imageName=parentElement.childNodes[5].childNodes[1];
     let imageType=parentElement.childNodes[5].childNodes[3];
     let imageDescription=parentElement.childNodes[5].childNodes[5];
+    let imageSubmitButton=parentElement.childNodes[7].childNodes[1];
 
     imageName.setAttribute("contenteditable","true");
     imageType.setAttribute("contenteditable","true");
     imageDescription.setAttribute("contenteditable","true");
+    imageSubmitButton.innerHTML="Save Changes";
 
 
 
