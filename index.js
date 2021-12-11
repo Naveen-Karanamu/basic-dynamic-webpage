@@ -64,6 +64,8 @@ const deleteCard=(event)=>{
     targetId=event.target.id;
     const tagname=event.target.tagName;
     const newCard=globalTaskData.filter((card)=>card.id!==targetId)
+    globalTaskData=newCard;
+    localStorage.setItem("key",JSON.stringify({cards:globalTaskData}));
 
     if(tagname=="BUTTON"){
         return event.target.parentNode.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode.parentNode);
