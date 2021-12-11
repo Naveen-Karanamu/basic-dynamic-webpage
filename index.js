@@ -5,10 +5,11 @@ const createCard = ({ id, url, name, type, description }) => {
     return `<div class="col-md-6 col-lg-3 d-flex justify-content-center mb-5" id=${id}>
     <div class="card  ">
         <div class="card-header d-flex justify-content-end gap-2">
-            <button type="button" class="btn btn-outline-warning"> <i class="fas fa-pencil-alt"></i>
+            <button type="button" class="btn btn-outline-warning" id=${id} onclick="editCard().apply(this,arguments)">
+                <i class="fas fa-pencil-alt" id=${id} onclick="editCard().apply(this,arguments)"></i>
             </button>
             <button type="button" class="btn btn-outline-danger" id=${id} onclick="deleteCard().apply(this,arguments)"> 
-            <i id=${id} onclick="deleteCard().apply(this,arguments)"class="fas fa-trash-alt"></i>
+              <i id=${id} onclick="deleteCard().apply(this,arguments)"class="fas fa-trash-alt"></i>
             </button>
 
 
@@ -73,5 +74,31 @@ const deleteCard=(event)=>{
 
     else
     return event.target.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode.parentNode.parentNode);
+
+}
+
+const editCard=(event)=>{
+    event=window.event;
+    targetId=event.target.id;
+    const tagname=event.target.tagName;
+    let parentElement;
+    
+    if(tagname==="BUTTON"){
+        parentElement=event.target.parentNode.parentNode;
+    }
+
+    else
+    parentElement=event.target.parentNode.parentNode.parentNode;
+    // console.log(parentElement.childNodes[5].childNodes);
+
+    let imageName=parentElement.childNodes[5].childNodes[1];
+    let imageType=parentElement.childNodes[5].childNodes[3];
+    let imageDescription=parentElement.childNodes[5].childNodes[5];
+
+    imageName.setAttribute("contenteditable","true");
+    imageName.setAttribute("contenteditable","true");
+    imageName.setAttribute("contenteditable","true");
+
+
 
 }
