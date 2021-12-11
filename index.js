@@ -1,13 +1,14 @@
-const taskContainer=document.querySelector(".task_container");
-let globalTaskData=[];
+const taskContainer = document.querySelector(".task_container");
+let globalTaskData = [];
 
-const createCard=({id,url,name,type,description})=>{
-    return `<div class="col-md-6 col-lg-4 d-flex justify-content-center mb-5" id=${id}>
+const createCard = ({ id, url, name, type, description }) => {
+    return `<div class="col-md-6 col-lg-3 d-flex justify-content-center mb-5" id=${id}>
     <div class="card  ">
         <div class="card-header d-flex justify-content-end gap-2">
             <button type="button" class="btn btn-outline-warning"> <i class="fas fa-pencil-alt"></i>
             </button>
-            <button type="button" class="btn btn-outline-danger"> <i class="fas fa-trash-alt"></i>
+            <button type="button" class="btn btn-outline-danger" id=${id} onclick="deleteCard().apply(this,arguments)"> 
+            <i id=${id} onclick="deleteCard().apply(this,arguments)"class="fas fa-trash-alt"></i>
             </button>
 
 
@@ -27,33 +28,48 @@ const createCard=({id,url,name,type,description})=>{
 </div>`;
 };
 
-const loadImageData=()=>{
-    const getImageData=localStorage.getItem("key");
-    if(!getImageData)
+const loadImageData = () => {
+    const getImageData = localStorage.getItem("key");
+    if (!getImageData)
         return;
 
-        const {cards}=JSON.parse(getImageData);
+    const { cards } = JSON.parse(getImageData);
 
-        cards.map((card)=>{
-            const createNewCard=createCard(card);
-            taskContainer.insertAdjacentHTML("beforeend",createNewCard);
-            globalTaskData.push(card);
-        })
+    cards.map((card) => {
+        const createNewCard = createCard(card);
+        taskContainer.insertAdjacentHTML("beforeend", createNewCard);
+        globalTaskData.push(card);
+    })
 }
 
-const addImage=()=>{
-    const saveChanges={
-        id:`${Date.now()}`,
-        url:document.getElementById("imageURL").value,
-        name:document.getElementById("imageName").value,
-        type:document.getElementById("imageType").value,
-        description:document.getElementById("imageDescription").value,
-        
+const addImage = () => {
+    const saveChanges = {
+        id: `${Date.now()}`,
+        url: document.getElementById("imageURL").value,
+        name: document.getElementById("imageName").value,
+        type: document.getElementById("imageType").value,
+        description: document.getElementById("imageDescription").value,
+
     };
 
     console.log(saveChanges);
-    const createNewCard=createCard(saveChanges);
-    taskContainer.insertAdjacentHTML("beforeend",createNewCard);
+    const createNewCard = createCard(saveChanges);
+    taskContainer.insertAdjacentHTML("beforeend", createNewCard);
     globalTaskData.push(saveChanges);
-    localStorage.setItem("key", JSON.stringify({cards:globalTaskData}));
+    localStorage.setItem("key", JSON.stringify({ cards: globalTaskData }));
 };
+
+const deleteCard=(event)=>{
+    event =window.event;
+    targetId=event.target.id;
+    const tagname=event.target.tagName;
+    const newCard=globalTaskData.filter((card)=>card.id!==targetId)
+
+    if(tagname=="BUTTON"){
+        return event.target.parentNode.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode.parentNode);
+    }
+
+    else
+    return event.target.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode.parentNode.parentNode);
+
+}
